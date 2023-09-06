@@ -8,6 +8,8 @@ import {
 import AppLayout from './AppLayout';
 import Login from './components/Login';
 import './styles/index.css';
+import {Provider} from 'react-redux';
+import appstore from './store/store';
 
 const appRouter = createBrowserRouter([
     {
@@ -28,4 +30,4 @@ const appRouter = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<RouterProvider router={appRouter}/>);
+root.render(<Provider store={appstore}><RouterProvider router={appRouter}/></Provider>);
