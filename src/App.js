@@ -10,6 +10,7 @@ import Login from './components/Login';
 import './styles/index.css';
 import {Provider} from 'react-redux';
 import appstore from './store/store';
+import Browse from './components/Browse';
 
 const appRouter = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const appRouter = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login />
+            },
+            {
+                path: '/browse',
+                element: <Browse />
             }
         ]
     }

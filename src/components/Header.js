@@ -1,9 +1,13 @@
 import React from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import {useSelector} from 'react-redux';
+import LogOut from './LogOut';
 
 const Header = () => {
-    const location = useLocation();
-    const isLogin = location.pathname.includes('/login');
+    //const location = useLocation();
+
+    //const isLogin = location.pathname.includes('/login');
+    const user = useSelector((state) => state.user);
 
     return (
         <header className={'w-full bg-gradient-to-b from-black text-white py-2 absolute z-10'}>
@@ -16,7 +20,17 @@ const Header = () => {
                         </Link>
                     </div>
 
-                    {!isLogin && (
+                    {/*{!isLogin || user && (*/}
+                    {/*    <div className={'pt-4'}>*/}
+                    {/*        <Link to={'/login'}>*/}
+                    {/*            <button className={'bg-red-600 py-2 px-4 rounded-lg font-bold text-sm cursor-pointer'}>*/}
+                    {/*                Sign in*/}
+                    {/*            </button>*/}
+                    {/*        </Link>*/}
+                    {/*    </div>*/}
+                    {/*)}*/}
+
+                    {!user && (
                         <div className={'pt-4'}>
                             <Link to={'/login'}>
                                 <button className={'bg-red-600 py-2 px-4 rounded-lg font-bold text-sm cursor-pointer'}>
@@ -25,6 +39,8 @@ const Header = () => {
                             </Link>
                         </div>
                     )}
+
+                    {user && <LogOut />}
                 </div>
             </div>
         </header>
