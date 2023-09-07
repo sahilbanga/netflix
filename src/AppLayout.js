@@ -11,7 +11,7 @@ const AppLayout = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/auth.user
@@ -21,12 +21,13 @@ const AppLayout = () => {
                     email
                 }));
                 navigate('/browse');
-                // ...
             } else {
                 dispatch(removeUser());
                 navigate('/');
             }
         });
+
+        return () => unsubscribe();
     }, []);
     return (
         <div>
