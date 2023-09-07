@@ -8,11 +8,7 @@ const FullMovieContainer = () => {
         return state?.getNowMovies?.nowPlayingMovies;
     });
 
-    console.log('nowPlayingMovies', nowPlayingMovies)
-
     const movieDetail = nowPlayingMovies?.results?.[1];
-
-    console.log('movieDetail', movieDetail)
 
     if(movieDetail) {
         return (
