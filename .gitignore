@@ -7,3 +7,4 @@ coverage
 .firebase/
 .github/
 firebase.json
+src/secretKey.js
