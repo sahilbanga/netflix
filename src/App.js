@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import GetStarted from './components/GetStarted';
+//import GetStarted from './components/GetStarted';
 import {
     createBrowserRouter,
     RouterProvider,
@@ -19,7 +19,7 @@ const appRouter = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <GetStarted />
+                element: <Login />
             },
             {
                 path: '/login',
